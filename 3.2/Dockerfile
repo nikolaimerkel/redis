@@ -28,7 +28,7 @@ RUN set -ex; \
 ENV REDIS_VERSION 3.2.9
 ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-3.2.9.tar.gz
 ENV REDIS_DOWNLOAD_SHA 6eaacfa983b287e440d0839ead20c2231749d5d6b78bbe0e0ffa3a890c59ff26
-USER 42
+
 # for redis-sentinel see: http://redis.io/topics/sentinel
 RUN set -ex; \
 	\
@@ -74,4 +74,5 @@ COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 6379
+USER 42
 CMD ["redis-server"]
