@@ -1,7 +1,7 @@
 FROM debian:jessie-slim
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN groupadd -r redis && useradd -r -g redis redis
+RUN groupadd -r 42 && useradd -r -g 42 42
 
 # grab gosu for easy step-down from root
 # https://github.com/tianon/gosu/releases
@@ -66,7 +66,7 @@ RUN set -ex; \
 	\
 	apt-get purge -y --auto-remove $buildDeps
 
-RUN mkdir /data && chown redis:redis /data
+RUN mkdir /data && chown 42:42 /data
 VOLUME /data
 WORKDIR /data
 
