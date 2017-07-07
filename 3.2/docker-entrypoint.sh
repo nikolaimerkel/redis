@@ -11,7 +11,7 @@ fi
 if [ "$1" = 'redis-server' -a "$(id -u)" = '0' ]; then
 	chown -R 42 .
 	echo "IF"
-	exec gosu redis "$0" "$@"
+	exec gosu 42 "$0" "$@"
 fi
 
 exec "$@"
