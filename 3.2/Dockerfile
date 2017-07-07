@@ -67,6 +67,7 @@ RUN set -ex; \
 	apt-get purge -y --auto-remove $buildDeps
 
 RUN mkdir /data && chown 42:42 /data
+RUN mkdir /test && chown 42:42 /test
 VOLUME /data
 WORKDIR /data
 
