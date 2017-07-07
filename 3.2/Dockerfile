@@ -2,7 +2,7 @@ FROM debian:jessie-slim
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r 42 && useradd -r -g 42 42
-USER 42
+
 # grab gosu for easy step-down from root
 # https://github.com/tianon/gosu/releases
 ENV GOSU_VERSION 1.10
@@ -28,7 +28,7 @@ RUN set -ex; \
 ENV REDIS_VERSION 3.2.9
 ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-3.2.9.tar.gz
 ENV REDIS_DOWNLOAD_SHA 6eaacfa983b287e440d0839ead20c2231749d5d6b78bbe0e0ffa3a890c59ff26
-
+USER 42
 # for redis-sentinel see: http://redis.io/topics/sentinel
 RUN set -ex; \
 	\
